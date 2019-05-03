@@ -51,8 +51,7 @@ Chrome搜索：
 <https://github.com/XX-net/XX-Net/wiki/how-to-create-my-appids>
 
 ```shell
-indigo-tracker-156702|marine-might-156702|secure-racer-156702|eighth-surfer-156703|t-scarab-156703|crested-aquifer-156703|focus-union-156703|skilful-ethos-156703|striped-harbor-156703|potent-symbol-156704|keen-
-vial-156704|coherent-voice-156704|my-project-12-156704|global-impulse-156704|abiding-pod-156704|erudite-pod-156704|sylvan-deck-156704|bionic-harbor-156704|coherent-vim-156704|adroit-nimbus-156704|natural-osprey-156704
+hello1|hello2|hello3
 ```
 
 ### Shadowsocks
