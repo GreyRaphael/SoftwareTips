@@ -151,3 +151,7 @@ Windows Registry Editor Version 5.00
 ; remove key
 ;[-HKEY_CLASSES_ROOT\*\shell\Notepad\Command]
 ```
+
+## MS word
+
+MS word搜索文献: 
