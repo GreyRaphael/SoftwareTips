@@ -2,6 +2,7 @@
 
 - [transfer](#transfer)
   - [syncthing](#syncthing)
+  - [goproxy](#goproxy)
 
 ## syncthing
 
@@ -45,3 +46,27 @@ Get-Process -Name "syncthing" | Stop-Process
 # set password and sync directory
 # add device by fedora Device ID
 ```
+
+## goproxy
+
+download [proxy_admin_free](https://github.com/snail007/proxy_admin_free/blob/master/README_ZH.md) by bash
+
+```bash
+# in server
+curl -L https://mirrors.host900.com/https://github.com/snail007/proxy_admin_free/blob/master/install_auto.sh | bash 
+
+# install path /usr/local/bin/proxy-admin
+# configuration path /etc/gpa, change port of webui
+# uninstall just exec : /usr/local/bin/proxy-admin uninstall && rm /etc/gpa
+# please visit : http://YOUR_IP:32080/ username: root, password: 123
+
+# change pwd in webui, all kinds of configuration in webui
+# config YOUR_PORT for client
+# download proxy.crt and proxy.key from webui for client
+```
+
+```bash
+# in client
+# download proxy from https://github.com/snail007/goproxy/releases
+./proxy client -P YOUR_IP:YOUR_PORT -T tls -C proxy.crt -K proxy.key --k default
+````
