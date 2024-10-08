@@ -3,6 +3,7 @@
 - [transfer](#transfer)
   - [syncthing](#syncthing)
   - [goproxy](#goproxy)
+  - [rustdesk](#rustdesk)
 
 ## syncthing
 
@@ -69,4 +70,47 @@ curl -L https://mirrors.host900.com/https://github.com/snail007/proxy_admin_free
 # in client
 # download proxy from https://github.com/snail007/goproxy/releases
 ./proxy client -P YOUR_IP:YOUR_PORT -T tls -C proxy.crt -K proxy.key --k default
-````
+```
+
+## rustdesk
+
+deploy rustdesk-server in aliyun, [tutorial](https://rustdesk.com/docs/en/self-host/rustdesk-server-oss/install/)
+
+```bash
+# recommended
+wget https://raw.githubusercontent.com/techahold/rustdeskinstall/master/install.sh
+chmod +x install.sh
+./install.sh
+# no need to install HTTP server
+# it will show public key xxxxxxxxxxxxxxxxxxxxxx, note it
+
+# open firewall ports
+21114:21119/tcp
+21116/udp
+```
+
+```bash
+# uninstall rustdesk-serer completely
+sudo systemctl stop rustdeskrelay.service rustdesksignal.service
+sudo systemctl disable rustdeskrelay.service rustdesksignal.service
+sudo rm -rf /var/log/rustdesk/
+sudo rm -rf /opt/rustdesk/
+sudo rm -rf /etc/systemd/system/rustdesksignal.service
+sudo rm -rf /etc/systemd/system/rustdeskrelay.service
+
+# if you want to uninstall gohttpserver
+sudo systemctl stop gohttpserver.service
+sudo systemctl disable gohttpserver.service
+sudo rm -rf /var/log/gohttp/
+sudo rm -rf /opt/gohttp/
+sudo rm -rf /etc/systemd/system/gohttpserver.service
+```
+
+how to use in client
+
+```bash
+# go to settings/Network
+paste ID/Relay Server with your ip
+# paste the public key
+xxxxxxxxxxxxxxxxxxxxxx
+```
