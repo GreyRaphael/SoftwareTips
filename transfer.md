@@ -4,6 +4,8 @@
   - [syncthing](#syncthing)
   - [goproxy](#goproxy)
   - [rustdesk](#rustdesk)
+  - [ssh](#ssh)
+    - [win10 prevent ssh from disconnecting](#win10-prevent-ssh-from-disconnecting)
 
 ## syncthing
 
@@ -113,4 +115,27 @@ how to use in client
 paste ID/Relay Server with your ip
 # paste the public key
 xxxxxxxxxxxxxxxxxxxxxx
+```
+
+## ssh
+
+### win10 prevent ssh from disconnecting
+
+method1: edit `~/.ssh/config`
+- `ServerAliveInterval 30`: Sends a keepalive message every 30 seconds
+- `ServerAliveCountMax 120`: (Optional)If no response is received after 120 keepalive messages (i.e., 1 hours), the client will terminate the connection.
+
+```bash
+# ~/.ssh/config
+Host *
+    ServerAliveInterval 20
+    ServerAliveCountMax 120
+```
+
+method2: run in console
+
+```bash
+# in windows terminal
+# keep ssh alive: https://github.com/microsoft/terminal/issues/7291
+ssh -o ServerAliveInterval=30 your_name@your_host
 ```
