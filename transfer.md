@@ -19,6 +19,9 @@ sudo dnf install syncthing
 sudo systemctl enable syncthing@gewei.service
 sudo systemctl restart syncthing@gewei.service
 
+# change from 127.0.0.1:8384 -> 0.0.0.0:8384
+vi ~/.local/state/syncthing/config.xml
+
 # go to browser visit
 http://your_server_host:8384/
 # set password and sync directory
